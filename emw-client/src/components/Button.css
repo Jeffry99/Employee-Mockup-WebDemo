@@ -1,0 +1,87 @@
+button.button {
+    transition: all 0.5s ease;
+    background-color: #2185d0;
+    border-radius: 4px;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-weight:  700;
+    font-size: 15px;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+button.button:hover {
+    background-color: #1678c2;
+}
+
+#cancelBtn {
+    background-color: crimson;
+    
+}
+
+#editBtn {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    /* background-image: url('../icons/edit.png'); */
+}
+
+#deleteBtn {
+    width: 30px;
+    height: 30px;
+    /* background-image: url('../icons/delete.png'); */
+    background-size: cover;
+    background-color: crimson;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: flex;
+}
+
+#deleteBtn:hover {
+    background-color: rgb(204, 12, 51);
+    
+}
+
+#cancelBtn:hover {
+    background-color: rgb(204, 12, 51);
+}
+
+
+#searchBtn {
+    width: 50px;
+    margin-bottom: 1%;
+    padding-left: 1.7%;
+}
+
+#addBtn {
+    width: 200px;
+    height: 75px;
+    margin-bottom: 1%;
+    background-color: rgb(73, 194, 73);
+}
+
+#addBtn:hover{
+    background-color: rgb(62, 172, 62);
+}
+
+#deleteSelectedBtn {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 1%;
+    margin-left: 5px;
+    background-color: crimson;
+    align-items: center;
+    text-align: center;
+    padding: auto;
+    display: flex;
+}
+
+#deleteSelectedBtn:hover{
+    background-color: rgb(204, 12, 51);
+}

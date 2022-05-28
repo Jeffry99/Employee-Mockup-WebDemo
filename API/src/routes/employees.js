@@ -7,7 +7,7 @@ const mysqlConnection = require('../database')
 router.use(cors())
 
 router.get('/getEmployees', (req, res) => {
-    mysqlConnection.query('SELECT * FROM employees', (err, rows, fields) => {
+    mysqlConnection.query("SELECT emp_id, CONCAT(emp_firstname, ' ', emp_lastname) as name, emp_email from employees", (err, rows, fields) => {
         if(!err) {
             res.json(rows);
         } else {
@@ -19,13 +19,26 @@ router.get('/getEmployees', (req, res) => {
 router.get('/getEmployees/:id', (req, res) => {
     const { id } = req.params
 
-    mysqlConnection.query('SELECT * FROM employees WHERE emp_id = ?', [id], (err, rows, fields) => {
+    mysqlConnection.query('SELECT emp_id, CONCAT(emp_firstname, " ", emp_lastname) as name, emp_email from employees WHERE emp_id = ?', [id], (err, rows, fields) => {
         if(!err) {
             res.json(rows[0]);
         } else {
             console.log(err)
         }
     })
+})
+
+router.get('/getEmployeesByName/:name', (req, res) => {
+    const { name } = req.params
+    console.log(name)
+    mysqlConnection.query(`SELECT emp_id, CONCAT(emp_firstname, " ", emp_lastname) as name, emp_email from employees WHERE emp_firstname LIKE "%${name}%" OR emp_lastname LIKE "%${name}%"`, (err, rows, fields) => {
+        if(!err) {
+            res.json(rows);
+        } else {
+            console.log(err)
+        }
+    })
+    console.log(`SELECT emp_id, CONCAT(emp_firstname, " ", emp_lastname) as name, emp_email from employees WHERE emp_firstname LIKE "%${name}%" OR emp_lastname LIKE "%${name}%"`);
 })
 
 router.post('/addEmployee', (req, res) => {
@@ -61,6 +74,18 @@ router.delete('/deleteEmployee/:id', (req, res) => {
             console.log(err)
         }
     })
+})
+
+router.delete('/deleteEmployees', (req, res) => {
+    const { ids } = req.params
+    console.log(ids)
+    // mysqlConnection.query('DELETE FROM employees WHERE emp_id IN', [ids], (err, rows, fields) => {
+    //     if(!err) {
+    //         res.json({Status: 'Employee has been deleted'})
+    //     } else {
+    //         console.log(err)
+    //     }
+    // })
 })
 
 module.exports = router

@@ -1,0 +1,45 @@
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.35) 0 5px 15px;
+    transition: all 0.7s ease;
+}
+
+.usr_title {
+    display: inline-block;
+    text-align: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.usr_footer {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.usr_footer Button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+}
+
+#tableCard {
+    width: 100%;
+    align-items: center;
+    
+}
